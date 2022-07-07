@@ -1,0 +1,1 @@
+Existen librerias o utilidades que nos pueden servir a todos, en esta carpeta pueden ir tirando sus librerias y ejemplos de codigos cortos.

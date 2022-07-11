@@ -16,6 +16,8 @@ public class FrmMenu extends javax.swing.JFrame {
     /**
      * Creates new form FrmMenu
      */
+	 String version="1899212";
+	 
     void abrir_tabla(JInternalFrame frm){
         escritorio.add(frm);
         frm.setVisible(true);

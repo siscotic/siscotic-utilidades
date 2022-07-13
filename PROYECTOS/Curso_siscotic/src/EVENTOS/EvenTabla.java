@@ -68,4 +68,42 @@ public class EvenTabla {
             System.out.println("Error:"+e+"\n"+titulo);
         }
     }
+    /**
+     * <H2>Calcula el sultotal de la tabla</H2>
+     * @param tbltabla tu tabla
+     * @param tmodel model
+     * @param col_cantidad la posicion de la cantidad
+     * @param col_precio la posicion del precio 
+     * @param col_subtotal la posicion del subtotal
+     */
+    public void calcular_subtotal(JTable tbltabla,DefaultTableModel tmodel,int col_cantidad,int col_precio,int col_subtotal){
+        double Ditem_subtotal=0;
+        if(tbltabla.getRowCount()>0){//cuenta la cantidad de fila mayor a cero
+            for (int row = 0; row < tbltabla.getRowCount(); row++) {//recorre toda la tabla
+                String Sitem_cantidad=tbltabla.getModel().getValueAt(row, col_cantidad).toString();
+                String Sitem_precio=tbltabla.getModel().getValueAt(row, col_precio).toString();
+                double Ditem_cantidad=Double.parseDouble(Sitem_cantidad);
+                double Ditem_precio=Double.parseDouble(Sitem_precio);
+                Ditem_subtotal=Ditem_cantidad*Ditem_precio;//multiplica la cantidad por precio
+                tmodel.setValueAt(Ditem_subtotal, row, col_subtotal);//carga el valor en la columna subtotal
+            }
+        }
+    }
+    /**
+     * <H2>Retorna la suma de la columna subtotal </H2>
+     * @param tbltabla
+     * @param col_subtotal la posicion de la columna
+     * @return la suma del subtotal de la columna
+     */
+     public double getDouble_sumar_subtotal(JTable tbltabla,int col_subtotal){
+        double Ditem_total=0;
+        if(tbltabla.getRowCount()>0){//cuenta la cantidad de fila mayor a cero
+            for (int row = 0; row < tbltabla.getRowCount(); row++) {//recorre toda la tabla
+                String Sitem_subtotal=tbltabla.getModel().getValueAt(row, col_subtotal).toString();
+                double Ditem_subtotal=Double.parseDouble(Sitem_subtotal);
+                Ditem_total=Ditem_total+Ditem_subtotal;
+            }
+        }
+        return Ditem_total;
+    }
 }

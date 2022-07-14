@@ -12,14 +12,22 @@ package apptest;
 public class AppTest {
 
     public static String version = "1.0";
-    public static String ip = "192.168.168.10";
-    public static String db = "datos";
-    
-    
+    public static String ip_server = "192.168.168.10";
+    private static String db = "datos";
+
     public static void main(String[] args) {
-        Jprincipal jp = new Jprincipal();
-        jp.setVisible(true);
-        jp.setLocationRelativeTo(null);
+
+        if (conectar()) {
+            Jprincipal jp = new Jprincipal();
+            jp.setVisible(true);
+            jp.setLocationRelativeTo(null);
+        } else {
+            System.out.println("error al conectar");
+        }
     }
-   
+
+    public static boolean conectar() {
+        return true;
+    }
+
 }

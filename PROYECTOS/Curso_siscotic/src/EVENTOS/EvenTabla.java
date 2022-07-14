@@ -106,4 +106,7 @@ public class EvenTabla {
         }
         return Ditem_total;
     }
+	public void eliminar_fila(){
+		
+	}
 }

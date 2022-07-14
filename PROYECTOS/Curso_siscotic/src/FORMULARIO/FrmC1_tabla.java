@@ -35,6 +35,11 @@ public class FrmC1_tabla extends javax.swing.JInternalFrame {
         idcontador++;
         String dato[]={String.valueOf(idcontador),txtdescripcion.getText(),txtcantidad.getText(),txtprecio.getText(),"100"};
         evetbl.cargar_tabla(tbltabla, modeltbl, dato);
+        sumar_tabla();
+    }
+    void sumar_tabla(){
+         evetbl.calcular_subtotal(tbltabla, modeltbl, 2, 3, 4);
+        jFtotal_gral.setValue(evetbl.getDouble_sumar_subtotal(tbltabla, 4));
     }
     public FrmC1_tabla() {
         initComponents();
@@ -59,7 +64,7 @@ public class FrmC1_tabla extends javax.swing.JInternalFrame {
         txtcantidad = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jFtotal_gral = new javax.swing.JFormattedTextField();
 
         setClosable(true);
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
@@ -80,6 +85,7 @@ public class FrmC1_tabla extends javax.swing.JInternalFrame {
             }
         });
 
+        tbltabla.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbltabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -91,6 +97,7 @@ public class FrmC1_tabla extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbltabla.setRowHeight(25);
         jScrollPane1.setViewportView(tbltabla);
 
         jButton1.setText("AGREGAR");
@@ -108,7 +115,10 @@ public class FrmC1_tabla extends javax.swing.JInternalFrame {
 
         jButton3.setText("ELIMINAR ITEM");
 
-        jFormattedTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder("TOTAL"));
+        jFtotal_gral.setBorder(javax.swing.BorderFactory.createTitledBorder("TOTAL"));
+        jFtotal_gral.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0 Gs"))));
+        jFtotal_gral.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jFtotal_gral.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,7 +143,7 @@ public class FrmC1_tabla extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jFtotal_gral, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -152,8 +162,8 @@ public class FrmC1_tabla extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
-                    .addComponent(jFormattedTextField1))
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addComponent(jFtotal_gral))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -185,7 +195,7 @@ public class FrmC1_tabla extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JFormattedTextField jFtotal_gral;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbltabla;

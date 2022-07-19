@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "35cb8b1c-cab7-4d56-8960-017f0dde81ec",
+		"name": "FacturaSend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15351761"
+	},
+	"item": [
+		{
+			"name": "Test Servicio",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer api_key_E490D45D-AF3A-466E-9F7E-E45E1180814C",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.facturasend.com.py/dignosoft/test",
+					"protocol": "https",
+					"host": [
+						"api",
+						"facturasend",
+						"com",
+						"py"
+					],
+					"path": [
+						"dignosoft",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateDE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer api_key_E490D45D-AF3A-466E-9F7E-E45E1180814C",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipoDocumento\" : 1,\r\n    \"establecimiento\" : 1,\r\n    \"punto\" : \"001\",\r\n    \"numero\" : 1,\r\n    \"descripcion\" : \"Aparece en el documento\",\r\n    \"observacion\" : \"Cualquier informacion de interes\",\r\n    \"fecha\" : \"2021-10-19T10:11:00\",\r\n    \"tipoEmision\" : 1,\r\n    \"tipoTransaccion\" : 1,\r\n    \"tipoImpuesto\" : 1,\r\n    \"moneda\" : \"PYG\",\r\n    \"cliente\" : {\r\n        \"contribuyente\" : true,\r\n        \"ruc\" : \"2005001-1\",\r\n        \"razonSocial\" : \"Marcos Adrian Jara Rodriguez\",\r\n        \"nombreFantasia\" : \"Marcos Adrian Jara Rodriguez\",\r\n        \"tipoOperacion\" : 1,\r\n        \"direccion\" : \"Avda Calle Segunda y Proyectada\",\r\n        \"numeroCasa\" : \"1515\",\r\n        \"departamento\" : 11,\r\n        \"departamentoDescripcion\" : \"ALTO PARANA\",\r\n        \"distrito\" : 143,\r\n        \"distritoDescripcion\" : \"DOMINGO MARTINEZ DE IRALA\",\r\n        \"ciudad\" : 3344,\r\n        \"ciudadDescripcion\" : \"PASO ITA (INDIGENA)\",\r\n        \"pais\" : \"PRY\",\r\n        \"paisDescripcion\" : \"Paraguay\",\r\n        \"tipoContribuyente\" : 1,\r\n        \"documentoTipo\" : 1,\r\n        \"documentoNumero\" : \"2324234\",\r\n        \"telefono\" : \"061-555555\",\r\n        \"celular\" : \"061-555555\",\r\n        \"email\" : \"cliente@cliente.com\",\r\n        \"codigo\" : \"1548\"\r\n    },\r\n    \"usuario\" : {\r\n        \"documentoTipo\" : 1,\r\n        \"documentoNumero\" : \"157264\",\r\n        \"nombre\" : \"Marcos Jara\",\r\n        \"cargo\" : \"Vendedor\"\r\n    },\r\n    \"factura\" : {\r\n        \"presencia\" : 1\r\n    },\r\n    \"condicion\" : {\r\n        \"tipo\" : 1,\r\n        \"entregas\" : [{\r\n            \"tipo\" : 1,\r\n            \"monto\" : \"150000\",\r\n            \"moneda\" : \"PYG\",\r\n            \"monedaDescripcion\" : \"Guarani\",\r\n            \"cambio\" : 0.0\r\n        }, {\r\n            \"tipo\" : 3,\r\n            \"monto\" : \"150000\",\r\n            \"moneda\" : \"PYG\",\r\n            \"monedaDescripcion\" : \"Guarani\",\r\n            \"cambio\" : 0.0,\r\n            \"infoTarjeta\" : {\r\n                \"numero\" : 1234,\r\n                \"tipo\" : 1,\r\n                \"tipoDescripcion\" : \"Dinelco\",\r\n                \"numeroTarjeta\": 3232,\r\n                \"titular\" : \"Marcos Jara\",\r\n                \"ruc\" : \"69695654-1\",\r\n                \"razonSocial\" : \"Bancard\",\r\n                \"medioPago\" : 1,\r\n                \"codigoAutorizacion\" : 232524234\r\n            }\r\n        }, {\r\n            \"tipo\" : 2,\r\n            \"monto\" : \"150000\",\r\n            \"moneda\" : \"PYG\",\r\n            \"monedaDescripcion\" : \"Guarani\",\r\n            \"cambio\" : 0.0,\r\n            \"infoCheque\" : {\r\n                \"numeroCheque\": \"32323232\",\r\n                \"banco\" : \"Sudameris\"\r\n            }\r\n        }],\r\n        \"credito\" : {\r\n            \"tipo\" : 1,\r\n            \"plazo\" : \"30 días\",\r\n            \"cuotas\" : 2,\r\n            \"montoEntrega\" : 1500000.00,\r\n            \"infoCuotas\" : [{\r\n                \"moneda\" : \"PYG\",\r\n                \"monto\" : 800000.00,\r\n                \"vencimiento\" : \"2021-10-30\"\r\n            }, {\r\n                \"moneda\" : \"PYG\",\r\n                \"monto\" : 800000.00,\r\n                \"vencimiento\" : \"2021-11-30\"\r\n            }]\r\n        }\r\n    },\r\n    \"items\" : [{\r\n        \"codigo\" : \"A-001\",\r\n        \"descripcion\": \"Producto o Servicio\",\r\n        \"observacion\": \"Cualquier informacion de interes\",\r\n        \"ncm\": \"123456\",\r\n        \"unidadMedida\": 77,\r\n        \"cantidad\": 10.5,\r\n        \"precioUnitario\": 10800,\r\n        \"cambio\": 0.0,\r\n        \"ivaTipo\" : 1,\r\n        \"ivaBase\" : 100,\r\n        \"iva\" : 5,\r\n        \"lote\" : \"A-001\",\r\n        \"vencimiento\" : \"2022-10-30\",\r\n        \"numeroSerie\" : \"\",\r\n        \"numeroPedido\" : \"\",\r\n        \"numeroSeguimiento\" : \"\"\r\n    }]\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.facturasend.com.py/dignosoft/de/create",
+					"protocol": "https",
+					"host": [
+						"api",
+						"facturasend",
+						"com",
+						"py"
+					],
+					"path": [
+						"dignosoft",
+						"de",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
